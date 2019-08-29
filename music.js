@@ -63,12 +63,15 @@ const musicList = [
   { title: "Tehran 1979", artist: "Debbie" }
 ];
 
+// add velocity so the titles falls down faster and faster
+// add padding? around titles so they don´t fall ontop of eachather
 class Music {
   constructor(title, artist) {
-    this.x = random(0, WIDTH);
+    this.x = random(0, WIDTH - 200);
     this.y = -100;
     this.artist = artist;
     this.title = title;
+    
   }
 
   setup() {
@@ -77,15 +80,22 @@ class Music {
 
   draw() {
     this.div.position(this.x, this.y);
-    this.div.style("background-color", "white");
-    this.div.style("border", "2px solid pink");
-
-    this.div.style("color", "black");
+    this.div.style("background-color", "black");
+    this.div.style("border", "2px solid white");
+    this.div.style("width", "150px");
+    this.div.style("text-align", "center");
+    this.div.style("color", "white");
+    this.div.style("padding", "5px");
+    this.width = 150;
+    this.height = this.div.height;
     this.y++;
+  
+  }
+
+  remove() {
+    this.div.remove();
   }
 }
-//randomMusicTitles =
-// musicList[Math.floor(math.random() * this.musicList.length)];
 
 /*
     let janiceTitels = [

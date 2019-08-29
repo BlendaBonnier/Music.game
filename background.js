@@ -28,7 +28,7 @@ class Background {
     image(pj, this.x + WIDTH * 17, this.y, WIDTH, HEIGHT);
     image(stivie, this.x + WIDTH * 18, this.y, WIDTH, HEIGHT);
     image(suzi, this.x + WIDTH * 19, this.y, WIDTH, HEIGHT);
-    this.x -= 5;
+    this.x -= 2;
     if (this.x < -WIDTH * 19) {
       this.x = -WIDTH * 2;
     }

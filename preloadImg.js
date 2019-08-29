@@ -1,5 +1,5 @@
 let HEIGHT = 700; //y-axes
-let WIDTH = 900; //x-axes
+let WIDTH = 800; //x-axes
 
 let janice;
 let debbi;
@@ -21,6 +21,8 @@ let kateFace;
 let joanFace;
 let nicoFace;
 let pjFace;
+let guitarPlayer;
+let guitarSolo;
 
 function preload() {
   janice = loadImage("assets/Janice-Jopelin.png");
@@ -43,4 +45,6 @@ function preload() {
   joanFace = loadImage("assets/joan-face.png");
   nicoFace = loadImage("assets/nico-face.png");
   pjFace = loadImage("assets/pj-face.png");
+  guitarPlayer = loadImage("assets/guitar-player.png");
+  guitarSolo = loadSound("assets/looperman.solo.wav");
 }

@@ -1,43 +1,28 @@
 const game = new Game();
-let button;
+let startGame = false;
+let startPage = false;
+let button = document.querySelector(".start-button");
+button.onclick = start;
+let gameOver = false;
 
+function end() {
+  document.querySelector(".gameOver").style.display = "display";
+  if(point <= -10){
+    gameOver = true;
+  }
+}
+
+function start() {
+  document.querySelector(".startpage").style.display = "none";
+  startGame = true;
+}
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("gameBoard");
   game.setup();
-  button = createButton("START GAME!!!");
-  button.parent("gameBoard");
-  button.position(WIDTH / 2, HEIGHT / 4);
-  button.mousePressed(startGame);
-}
-function startGame() {
-  button.hide();
-
-  game.setup();
 }
 
 function draw() {
-  //background(0);
-  game.draw();
-  //background.draw();
-  if (game.started == true) {
-    game.draw();
-  }
-  if (game.started == false) {
-    button.show();
-  }
+  if (startGame) game.draw();
 }
-
-
-window.addEventListener(
-  "keydown",
-  function(e) {
-    if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
-      e.preventDefault();
-    }
-  },
-  false
-  
-);
-

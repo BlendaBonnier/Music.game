@@ -2,13 +2,21 @@ class Artist {
   constructor(artistName, x) {
     this.name = artistName;
     // this.x = WIDTH / 2;
-    this.width = 140;
-    this.height = 140;
+    this.width = 80;
+    this.height = 80;
     this.x = x;
     this.y = HEIGHT - this.height;
+    this.defaultX = this.x;
+    this.defaultY = this.y;
     this.point = 0;
     this.selected = false;
   }
+
+  reset() {
+    this.x = this.defaultX;
+    this.y = this.defaultY;
+  }
+
   setup() {
     if (this.name === "Patti") {
       this.image = loadImage("assets/patti-face.png");
@@ -40,8 +48,8 @@ class Artist {
   }
 
   move() {
-    console.log(this);
     if (
+      this.selected &&
       mouseX > this.x &&
       mouseX < this.x + this.width &&
       mouseY > this.y &&
@@ -54,7 +62,6 @@ class Artist {
   }
 
   select() {
-    console.log("selected");
     if (
       mouseX > this.x &&
       mouseX < this.x + this.width &&
@@ -64,14 +71,41 @@ class Artist {
       this.selected = true;
     }
   }
+
+  /*return() {
+  if (mouseReleased = true) {
+    artist.selected()
+  } 
+}//return to it´s startin position (connect to mouse released function)
+*/
 }
+
+let firstClick = true;
 
 function mouseDragged() {
   // Did I click on the rectangle?
+
+  if (firstClick) {
+    game.artists.forEach(artist => {
+      if (!game.artists.some(artist => artist.selected)) artist.select();
+    });
+  }
+
+  firstClick = false;
+
   game.artists.forEach(artist => {
     artist.move();
   });
 }
+
+function mouseReleased() {
+  game.artists.forEach(artist => {
+    artist.selected = false;
+    artist.reset();
+  });
+  firstClick = true;
+}
+
 /* 
 function mousePressed() {
   game.artists.forEach(artist => {
