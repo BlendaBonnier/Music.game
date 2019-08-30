@@ -54,7 +54,7 @@ class Game {
       artist.draw();
     });
 
-    if (point >= 10 && speedTime > 80) {
+    if (point >= 10 && speedTime > 110) {
       speedTime--;
     }
     if (frameCount % speedTime === 0) {
@@ -97,16 +97,16 @@ class Game {
     textSize(20);
     text(point, 10, 30);
 
-    if (point > 20) {
-      fill("red");
-      textSize(50);
+    if (point >= 20) {
+      fill("green");
+      textSize(70);
       text("YOU WIN!!!!", 250, 300);
       textFont("Helvetica");
       noLoop();
     } else {
       if (point < -10) {
-        fill("white");
-        textSize(50);
+        fill("red");
+        textSize(70);
         text("YOU LOSE!!!!!", 250, 300);
         noLoop();
       }

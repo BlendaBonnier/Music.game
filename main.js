@@ -1,3 +1,4 @@
+
 const game = new Game();
 let startGame = false;
 let startPage = false;
