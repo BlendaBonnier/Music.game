@@ -23,6 +23,8 @@ let nicoFace;
 let pjFace;
 let guitarPlayer;
 let guitarSolo;
+let error;
+let jesus;
 
 function preload() {
   janice = loadImage("assets/Janice-Jopelin.png");
@@ -47,4 +49,6 @@ function preload() {
   pjFace = loadImage("assets/pj-face.png");
   guitarPlayer = loadImage("assets/guitar-player.png");
   guitarSolo = loadSound("assets/looperman.solo.wav");
+  error = loadSound("assets/error.mp3");
+  jesus = loadImage("assets/jesus.png");
 }

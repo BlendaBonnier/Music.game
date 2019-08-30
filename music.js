@@ -64,14 +64,13 @@ const musicList = [
 ];
 
 // add velocity so the titles falls down faster and faster
-// add padding? around titles so they don´t fall ontop of eachather
+
 class Music {
   constructor(title, artist) {
     this.x = random(0, WIDTH - 200);
     this.y = -100;
     this.artist = artist;
     this.title = title;
-    
   }
 
   setup() {
@@ -89,110 +88,15 @@ class Music {
     this.width = 150;
     this.height = this.div.height;
     this.y++;
-  
+
+    if (this.y > 580) {
+      this.remove();
+      this.offScreen = true;
+      
+    }
   }
 
   remove() {
     this.div.remove();
   }
 }
-
-/*
-    let janiceTitels = [
-      "Piece of My Heart",
-      "Cry Baby",
-      "Me and Bobby McGee",
-      "Call On Me",
-      "Mercedes Benz"
-    ];
-    let debbieTitles = [
-      "Shadows",
-      "I Want That Man",
-      "Rush, Rush",
-      "French Kissin´in the USA",
-      "Tehran 1979"
-    ];
-    let graceTitles = [
-      "Somebody to Love",
-      "White Rabbit",
-      "Rejoyce",
-      "Lather",
-      "Sketches of China",
-      "We Built This City"
-    ];
-    let joanTitles = [
-      "I Love Rock´N Roll",
-      "I Hate Myself for Loving You",
-      "Bad Reputation",
-      "Crimson and Clover",
-      "Do you Wanna Touch Me",
-      "Rebel, Rebel",
-      "Love Is Pain",
-      "Cherry Bomb"
-    ];
-    let kateTitles = [
-      "Wuthering Heights",
-      "Running Up That Hill",
-      "Cloudbusting",
-      "This Woman´s Work",
-      "Hounds Of Love"
-    ];
-    let nicoTitles = [
-      "Chelsea Girls",
-      "Heroin",
-      "Venus In Furs",
-      "Sunday Morning",
-      "These Days",
-      "I´m Waiting For The Man"
-    ];
-    let patTitles = [
-      "Hit Me With Your Best Shot",
-      "We Belong",
-      "Love Is A Battlefield",
-      "Heartbreaker",
-      "Shadows Of The Nigth"
-    ];
-    let pjTitles = [
-      "Down By The Water",
-      "This Mess We´re In",
-      "The Wind",
-      "Rid Of Me",
-      "This Is Love"
-    ];
-    let stevieTitles = [
-      "Edge of Seventeen",
-      "Stop Draggin My Heart Around",
-      "Wild Heart",
-      "Landslide",
-      "Dreams",
-      "Nothing Ever Changes"
-    ];
-    let suziTitles = [
-      "The Wild One",
-      "Stumblin In",
-      "I´m a Rocker",
-      "Woman Cry",
-      "If You Can´t Give Me Love"
-    ];
-    let pattiTitles = [
-      "Paths that cross",
-      "Because The Nigth",
-      "Dancing Barefoot",
-      "People have the Power",
-      "Gloria",
-      "Looking for You"
-    ];
-
-    const musicList = [pattiTitles, suziTitles, stevieTitles, pjTitles, patTitles, nicoTitles, graceTitles, joanTitles, janiceTitels, kateTitles, debbieTitles].reduce(function(accumulator, value) {
-      const artistName = value[0];
-      value.slice(1).forEach(function(title) {
-        accumulator.push({
-            title: title,
-            artist: artistName
-          })
-
-      })
-    
-    return accumulator
-      
-    }, []*/
